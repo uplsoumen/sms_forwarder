@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         slider.setValues(100.0f);
         slider.setValueFrom(100.0f);
         slider.setValueTo(5000.0f);
-        // SMS sending: First send and test the sms service
+//         SMS sending: First send and test the sms service
         Intent intent = new Intent(this, SmsSendForgroundService.class);
         slider.addOnChangeListener(new RangeSlider.OnChangeListener() {
             @SuppressLint("RestrictedApi")

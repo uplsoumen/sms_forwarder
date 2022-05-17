@@ -8,6 +8,7 @@ import android.app.Service;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.IBinder;
@@ -18,6 +19,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 
 import com.learning.smsforwarder.R;
+import com.learning.smsforwarder.broadcastReceivers.SmsBroadCastReceiver;
 
 public class SmsSendForgroundService extends Service {
     // 1. To create a foreground service you have to override two methods
@@ -42,11 +44,11 @@ public class SmsSendForgroundService extends Service {
                 String mobileNumber = sp.getString("mobileNumber", "");
                 // accessing delay time in millisecond
                 int delay = sp.getInt("delay", 5000);
-
+//                registerReceiver(SmsBroadCastReceiver,intentFilter);
                 while (true) {
                     try {
                         // sending the sms
-                        sms.sendTextMessage(mobileNumber, null, "Hello Suman Kamilya", pi, null);
+//                        sms.sendTextMessage(mobileNumber, null, "Hello Suman Kamilya", pi, null);
                         Thread.sleep(delay);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
